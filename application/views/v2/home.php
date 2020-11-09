@@ -24,18 +24,17 @@ function getTimeShow($t) {
 }
 ?>
 <!--中间部分-->
-    <div class="header_img bg_blue" style="height:320px;">
-        <!--可放一张图片-->
-	<!--
-            <h3 style="padding-top:80px;"><a style="color:#fff;decoration:none;" href="/v2/news/viewone/1/536" target="_blank">PostgreSQL 2019 中国技术大会圆满结束！资料下载</a></h3> 
-	-->
+<!--
+	<div class="header_img bg_blue" style="height:320px;">
+       ---     <h3 style="padding-top:80px;"><a style="color:#fff;decoration:none;" href="/v2/news/viewone/1/536" target="_blank">PostgreSQL 2019 中国技术大会圆满结束！资料下载</a></h3> 
 	
-            <h2 style='padding-top:80px;color:#fff'>PostgreSQL中文社区拜年啦！祝您新春快乐！ </h2>
+            <h2 style='padding-top:80px;color:#fff;'>不忘初心 砥砺前行 PostgreSQL 2020 再出发！</h2>
 	
 			<h3 style="color:#fff;"><img src='/images/doty2017.png' style="height:120px;"></img> <img src='/images/doty2018.png' style="height:120px;"></img> 蝉联DB-Engine“年度最佳数据库”</h3>
 			<br>
-			<h4 style='color:#fff;'>不忘初心 砥砺前行 PostgreSQL 2020 再出发！ </h4>
+			
     </div>
+-->
 
 <!-- 当前大会需要推介时用
 	<div class="Xheader_img Xbg_blue">
@@ -44,6 +43,57 @@ function getTimeShow($t) {
 	</a>
 	</div>
 -->
+<?php 
+
+$userAgent=isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : 'NONE_CLI';
+
+$keyList= array("about","discount","imgrecog","sales_p2p");
+
+$imgArr = array("about" =>"https://www.aliyun.com/product/rds/postgresql", 
+				"discount"=>"https://www.aliyun.com/database/postgresqlactivity",
+				"imgrecog"=>"https://help.aliyun.com/document_detail/154873.html",
+				"sales_p2p"=>"https://help.aliyun.com/document_detail/154080.html");
+shuffle($keyList) ;
+$picClass = preg_match_all('/iPhone|iPad|iPod|Android/i', $userAgent, $wordsFound) > 0 ? "cover" : "contain" ;
+
+?>
+<div  class="fluid" style="margin-top: 50px">
+<section id="myCarousel" class="carousel slide" style="min-height:300px;max-height:500px;" >
+	<ol class="carousel-indicators" style="margin-top:5px;">
+		<li data-target="#myCarousel" data-slide-to="0" class="active mr-3" style="width:20px;height:20px;margin-right:20px"></li>
+		<li data-target="#myCarousel" data-slide-to="1" class="mr-3" style="width:20px;height:20px;margin-right:20px"></li>
+		<li data-target="#myCarousel" data-slide-to="2" class="mr-3" style="width:20px;height:20px;margin-right:20px"></li>
+		<li data-target="#myCarousel" data-slide-to="3" class="mr-3" style="width:20px;height:20px;margin-right:20px"></li>
+	</ol>
+
+	<section class="carousel-inner" style="min-height:300px;max-height:500px;">
+		<div class="item active" style="background-color:#223cd1;text-align:center;">
+			<a href="<?php echo $imgArr[$keyList[0]]; ?>" target="_blank"><img src="/image/aliyun_<?php echo $keyList[0]; ?>.jpg" 
+					alt="" style="background-color:#223cd1;min-height:300px;max-height:500px;object-fit:<?php echo $picClass ; ?>;"></a>
+		</div>
+		<div class="item" style="background-color:#223cd1;text-align:center;">
+			<a href="<?php echo $imgArr[$keyList[1]]; ?>" target="_blank"><img src="/image/aliyun_<?php echo $keyList[1]; ?>.jpg" 
+					alt="" style="background-color:#223cd1;min-height:300px;max-height:500px;object-fit:<?php echo $picClass ; ?>;"></a>
+		</div>
+		<div class="item" style="background-color:#223cd1;text-align:center;">
+			<a href="<?php echo $imgArr[$keyList[2]]; ?>" target="_blank" ><img src="/image/aliyun_<?php echo $keyList[2]; ?>.jpg" 
+					alt="" style="background-color:#223cd1;min-height:300px;max-height:500px;object-fit:<?php echo $picClass ; ?>;"></a>
+		</div>
+		<div class="item" style="background-color:#223cd1;text-align:center;">
+			<a href="<?php echo $imgArr[$keyList[3]]; ?>" target="_blank" ><img src="/image/aliyun_<?php echo $keyList[3]; ?>.jpg" 
+					alt="" style="background-color:#223cd1;min-height:300px;max-height:500px;object-fit:<?php echo $picClass ; ?>;"></a>
+		</div>
+	</section>
+
+	<a href="#myCarousel" class="left carousel-control" data-slide="prev">
+		<span class="glyphicon glyphicon-chevron-left"></span>
+	</a>
+	<a href="#myCarousel" class="right carousel-control" data-slide="next">
+		<span class="glyphicon glyphicon-chevron-right"></span>
+	</a>
+</section>
+</div>
+
 <div class="container" style="margin-top: 20px">
     <!--左边内容部分-->
     <div class="col-md-3">
@@ -101,7 +151,7 @@ function getTimeShow($t) {
                 <li>主　席：<b>赵振平</b></li>
                 <li>副主席：<b>唐成</b></li>
                 <li>委　员：<small
-                >萧少聪、周正中、汪洋、张文升、陈河堆、朱贤文、李海龙、周到京、姜明俊、谭峰、胡辉、王硕、陈华军、秦红胜、刘泉、胡怡文、彭煜玮、胡森、姚延栋。(排名不分先后)</small> </li>
+                >萧少聪、周正中、汪洋、张文升、陈河堆、朱贤文、李海龙、周到京、姜明俊、谭峰、王硕、陈华军、秦红胜、刘泉、胡怡文、彭煜玮、胡森、姚延栋、韩涵、权宗亮、赵全明。(排名不分先后)</small> </li>
             </div>
 
 	</div>
@@ -142,6 +192,8 @@ function getTimeShow($t) {
                     <li><a target=_blank href="https://www.postgresql.org/">PostgreSQL官网</a></li>
                     <li><a target=_blank href="https://www.citusdata.com/">Citus Data官网</a></li>
                     <li><a target=_blank href="http://www.postgis.net/">PostGIS官网</a></li>
+                    <li><a target=_blank href="https://www.aliyun.com/product/rds/postgresql">阿里云RDS PostgreSQL</a></li>
+
                     <li><a target=_blank href="https://github.com/digoal/blog/blob/master/README.md">德哥的博客</a></li>
                     <li><a target=_blank href="https://postgres.fun/">francs的博客</a></li>
                     <li><a target=_blank href="http://www.pgsql.tech">乘数的PG技术网站</a></li>
@@ -165,3 +217,11 @@ function getTimeShow($t) {
         <!-- < ? php require('home/faq.php'); ? > -->
     </div>
 </div>
+
+<script >
+    $("#myCarousel").carousel({
+        interval: 3000,
+        pause: "hover",
+        wrap: true
+    });
+</script>
