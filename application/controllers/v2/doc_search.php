@@ -62,9 +62,9 @@ class Doc_Search extends CI_Controller {
 
     public function prepare($version = null){
         // 仅限命令行调用
-        // if (!$this->input->is_cli_request()) {
-        //     return '仅限CLI访问';
-        // }
+        if (!$this->input->is_cli_request()) {
+            return '仅限CLI访问';
+        }
 
         if (!$version) {
             return '请指定版本';
@@ -109,7 +109,9 @@ class Doc_Search extends CI_Controller {
     private function getDocData($version, $dir, $entry) {
         $doc = new DOMDocument();
         $content = file_get_contents($dir . '/' . $entry);
-        $doc->loadXML($content);
+        if (!@$doc->loadXML($content)) {
+            $doc->loadHTML($content);
+        }
 
         // 标题
         $title = $doc->getElementsByTagName('title')->item(0)->nodeValue;
